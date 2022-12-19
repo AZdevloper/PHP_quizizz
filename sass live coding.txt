@@ -1,0 +1,174 @@
+sass : Syntactically Awesome Stylesheet.
+is a powerful CSS preprocessor (generate css style) scripting language that helps you to
+work on your style sheet much faster than ever.
+Sass allows you to use features such as variables, function
+
+
+static to dynamic language
+
+used to creat css library
+css prefix (-webkit-,-moz-) is are a way for browser makers to add support for new CSS features before those
+features are fully supported in all browsers
+
+mai.css is the production version
+main.scss is the development version
+deferent between @import and @use is
+
+@use should add (as *,namspace.$varibal) to acces namspace varibal
+@import use varibales diractly
+nesting & parent elements
+">" : it used to speciale diricte children
+"&" : refered to parent element
+
+class1:hover class2 { color: red} >> will change element with class2 to color red when class1 is hovered
+:not(.class1) { color: red} >> will change element color unless except .class1
+
+property declarations & placeholder
+     margin: auto {
+        top: 89px;
+        bottom: 10px;
+    }
+    border: solid black 2px {
+        top: 12px;
+        button:22px dashed red;
+    }
+    placeholder
+    %inherent{
+        border: 2px;
+        max-width: 12px;
+    }
+    div {
+       @extend %inherent
+             }
+
+control flow if and else // dark mode ; language
+        $thempage : 'black';
+    .page{
+        @if $thempage == 'light'{
+            background-color: #fff;
+            color: black;
+        }@else{
+            background-color: black;
+            color: #fff;
+        }
+    }
+    .block{
+    color: if($thempage,lightblue,black);
+    }
+interpolation
+        $company: "companyname";
+    $property : "color";
+    $value : violet;
+    .div-#{$company}-#{unique-id()}{
+        margin: 5px;
+        margin-left: 50px;
+        #{$property}: #{$value};
+    }
+mixin and includes
+        @mixin function($var1,$var2){
+        margin: $var1;
+        border: 30px black #{$var2};
+         }
+    .div{
+        @include function(20px,"black");
+        background-color: #fff;
+        }
+
+loop for
+    to 10 without 10 ; through 10 including 10
+        @for $i from 1 through 2{
+            .class-#{$i}{
+                font-size: 10px + $i;
+            }
+            .class-#{$i+1}{
+                color: var(--main_color);
+                background-color:$violet;
+            }
+        }
+application
+    $cols :12;
+    @for $i from 1 through 12{
+            .class-#{$i}{
+                width: percentage($i/$cols);
+            }
+        }
+foreach
+array
+$colors :red,green,black,violet; >> you can add how much you want before cama (,)
+    @each $color in $colors {
+        .div-#{$color}{
+            color: $color;
+            background-color: $color;
+        }
+    }
+
+ $colors :"color" red ,"margin"green;
+@each $propirty, $valeu in $colors {
+    .div-#{$propirty}{
+        #{$propirty}: $valeu;
+    }
+}
+
+array associative
+    $colors :("youtube":red,"spotify":green,"gihub":black);
+    @each $nam, $color in $colors {
+        .div-#{$color}{
+            &::befor{
+                content:"#{$nam}";
+                color: $color;
+                border-radius: solid 22px $color;
+                translate: 22px;
+            }
+        }
+    }
+while
+        $start : 10;
+    @while $start <= 100{
+        .class1{
+            margin: 1px * $start;
+        }
+        $start: $start + 10;
+    }
+function
+    @function percentag($number,$cols){
+        @return percentage($number / $cols)
+    }
+
+application loop + content
+    @mixin breakpoint($point){
+        @if $point == sm {
+            @media (min-width: 576px ) and (max-width:768px){
+                @content;
+            }
+        }@else if $point == md{
+            @media (min-width: 768px ) and (max-width:992px) {
+                @content;
+            }
+        }@else if $point == lg{
+            @media (min-width: 992px ) and (max-width:1200px) {
+                @content;
+            }
+        }@else if $point == xlg{
+            @media (min-width: 1200px ) and (max-width:1400px) {
+                @content;
+            }
+        }@else if $point == xxlg{
+            @media (min-width: 1400px )  {
+                @content;
+            }
+        }@else {
+            @media (max-width: 566px ) {
+                @content;
+            }
+        }
+    }
+    .media {
+        $media : sm,md,lg,xlg,xxlg;
+        $font : 0;
+       @each $size in $media{
+        @include breakpoint($size){
+            font-size: $font+10px;
+        }
+        $font : $font + 4;
+        }
+    }

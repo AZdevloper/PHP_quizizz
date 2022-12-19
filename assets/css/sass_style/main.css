@@ -1,0 +1,30 @@
+body {
+  background-color: rgba(112, 115, 169, 0.1);
+  background-size: cover;
+}
+
+.custom-shape-divider-top-1671474662 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1671474662 svg {
+  position: relative;
+  display: block;
+  width: calc(125% + 1.3px);
+  height: 127px;
+}
+
+.custom-shape-divider-top-1671474662 .shape-fill {
+  fill: #7175AA;
+}
+
+.sectionCenter {
+  margin-right: 2rem;
+  margin-bottom: 3rem;
+  width: 60rem;
+}/*# sourceMappingURL=main.css.map */
