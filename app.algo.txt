@@ -1,0 +1,36 @@
+algorithme: quiz app
+
+variable reponse :int;
+const    constname= valeur;
+
+debut 
+    function reprendre_tout_question(){
+        ajax.send;
+        return questions[];
+    }
+    function verifier_reponse(reponse){
+        for i = 0 a data.length{
+            si reponse == data[i]
+                return true;
+        }
+    }
+
+    for i = 0 a data.length
+        ecrire("donne votre reponse");
+        lire(reponse);
+        si verifier_reponse(reponse) == true 
+            continue;
+
+        si non 
+            ecrire(" ")
+            break;
+
+
+
+
+
+
+
+
+
+fin
