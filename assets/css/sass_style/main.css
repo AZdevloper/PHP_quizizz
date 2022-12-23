@@ -141,5 +141,13 @@ button:active {
 }
 
 .resul_container {
-  background-color: rgb(101, 5, 214);
+  background-color: rgb(101, 95, 214);
+}
+
+.background_green {
+  background-color: green;
+}
+
+.background_red {
+  background-color: indianred;
 }/*# sourceMappingURL=main.css.map */

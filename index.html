@@ -72,10 +72,10 @@
           </div> -->
           
           
-            <div class="row d-none  flex-column justify-content-center align-items-center w-50 h-75  p-1 rounded-3 text-center answers">
+            <div class="row   flex-column justify-content-center align-items-center w-50 h-75  p-1 rounded-3 text-center answers" id="quetion_contenaire">
               <div id="myProgress" class=" d-flex  align-items-center">
                 <div id="myBar">
-                  <p class="per_progresbar">0%</p>
+                  <p class="per_progresbar" id="per_progresbar" ></p>
                 </div>
               </div>
               <div class="col p-2 quation">
@@ -85,13 +85,13 @@
                 <div class="row g-5 " id="answers_container">
                   <div class="col">
                   <div class="row g-2 flex-column ">
-                      <div class=" col p-1 bg-red-500  rounded-pill text-center d-flex answers_item">
+                      <div class=" col p-1 bg-black-100  rounded-pill text-center d-flex answers_item">
                         <input type="checkbox" id="checkbox1" name="" class="" >
-                        <button class="btn rounded-pill bg-success w-100" id="answer1"></button>
+                        <button class="btn rounded-pill  w-100" id="answer1"></button>
                       </div>
-                      <div class="col  p-1 bg-red-500  rounded-pill text-center d-flex respons_item answers_item ">
+                      <div class="col  p-1 bg-black-100  rounded-pill text-center d-flex respons_item answers_item ">
                         <input type="checkbox" id="checkbox2" name="" class="checkbox" >
-                        <button class="btn rounded-pill bg-success w-100" id="answer2"></button>
+                        <button class="btn rounded-pill  w-100" id="answer2"></button>
                       </div>
                   </div>
                   </div>
@@ -99,13 +99,13 @@
                   <div class="col">
                     <div class="row g-2 flex-column ">
                             
-                            <div class="col p-1 bg-red-500  rounded-pill text-center d-flex respons_item" >
+                            <div class="col p-1 bg-black-100  rounded-pill text-center d-flex respons_item" >
                                 <input type="checkbox" id="checkbox3" name="" >
-                                <button class="btn rounded-pill bg-success w-100" id="answer3"></button>
+                                <button class="btn rounded-pill  w-100" id="answer3"></button>
                             </div>
-                            <div class="col  p-1 bg-red-500  rounded-pill text-center d-flex respons_item respons_item" id="k2">
+                            <div class="col  p-1 bg-black-100  rounded-pill text-center d-flex respons_item respons_item" id="k2">
                               <input type="checkbox" id="checkbox4" name="" >
-                              <button class="btn rounded-pill bg-success w-100" id="answer4"></button>
+                              <button class="btn rounded-pill  w-100" id="answer4"></button>
             
                       </div>
                       
@@ -114,13 +114,13 @@
                 </div>
               </div>
               <div class="col">
-                <div class=" row d-flex justify-content-between  ">
+                <div class=" row d-flex justify-content-end  ">
             
-                  <div class="col-3 p-1 bg-red-500   rounded-pill text-center respons_item">
-                    <button class="btn rounded-pill bg-success w-100" id="cancelbtn">exit</button>
-                  </div>
-                  <div class="col-3 p-1 bg-red-500  rounded-pill text-center respons_item">  
-                    <button class="btn rounded-pill bg-success w-100" id="submitbtn">submit</button>
+                  <!-- <div class="col-3 p-1   rounded-pill text-center respons_item">
+                    <button class="btn rounded-pill  w-100" id="cancelbtn">exit</button>
+                  </div> -->
+                  <div class="col-3 p-1 bg-black-100    rounded-pill text-center respons_item">  
+                    <button class="btn rounded-pill  w-100" id="submitbtn">submit</button>
                   </div>
                   
                 </div>  
@@ -129,7 +129,7 @@
     
 
 
-            <div class=" w-50 h-50 d-flex   resul_container justify-content-center ">
+            <div class=" w-50 h-50 d-flex d-none resul_container justify-content-center " id="resul_container">
               <div>
                 <img
                       class="w-100px h-100px shadow rounded-circle resulte_logo_img"
@@ -137,7 +137,7 @@
                       alt=""
                     />
                   <div class=" div_logo  ">
-                    <p class=" f-w-600 fs-19px">your score is :</p>
+                    <p class=" f-w-600 fs-19px" id="div_logo">your score is : </p>
                   </div>
               </div>
             </div>

@@ -143,7 +143,16 @@ button:active {
 }
 .resul_container{
     @extend %abstract_class;
-    background-color: rgb(101, 5, 214);
+    
+    background-color: rgb(101, 95, 214);
+
+}
+.background_green{
+
+    background-color: green;
+}
+.background_red{
+    background-color: indianred;
 
 }
 
