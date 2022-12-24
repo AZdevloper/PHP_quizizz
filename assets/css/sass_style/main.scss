@@ -30,7 +30,7 @@ body{
 .sectionCenter{
          margin-right: 2rem;
     margin-bottom: 3rem; 
-    width: 60rem;
+    width: 71rem;
     
  
 
@@ -109,13 +109,14 @@ button:active {
     font-size: clamp(1rem, 4vw, 1.25rem);
 }
 
-// .respons_item{
-
-// }
+.answers_item{
+ background-color:coral;
+}
 .answers{
     background-color: rgb(101, 95, 214);
      font-family: 'Acme';
      font-weight: 900;
+     
 }
 .checkbox{
     position: relative;
@@ -154,6 +155,9 @@ button:active {
 .background_red{
     background-color: indianred;
 
+}
+.cont_fluid{
+    height: 41rem;
 }
 
 // :root {

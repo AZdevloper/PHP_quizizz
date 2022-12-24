@@ -1,18 +1,17 @@
-// import { questions } from "/assets/js/ques.js";
 import { questions } from "./ques.js";
 
-let getId = (id) => {
+let getElement = (id) => {
   return document.getElementById(id);
 };
 
-let btnstartid = getId("btnstart");
-let img_and_parastartid = getId("img_and_parastart");
+let btnstartid = getElement("btnstart");
+let img_and_parastartid = getElement("img_and_parastart");
 
-let question_id = getId("question_id");
-let answer1 = getId("answer1");
-let answer2 = getId("answer2");
-let answer3 = getId("answer3");
-let answer4 = getId("answer4");
+let question_id = getElement("question_id");
+let answer1 = getElement("answer1");
+let answer2 = getElement("answer2");
+let answer3 = getElement("answer3");
+let answer4 = getElement("answer4");
 
 var elem = document.getElementById("myBar");
 let number_of_questions = questions.length;
@@ -33,6 +32,8 @@ let width = 0;
 let current_question = 1;
 let current_answer;
 let progres_dis_withe = add_to_width; ; 
+let quetion_contenaire = getElement("quetion_contenaire");
+
 let show_next_quetion = () => {
   if (current_question <= number_of_questions) {
     let randomNumber = get_random_number(number_of_questions-1, 0);
@@ -47,31 +48,31 @@ let show_next_quetion = () => {
     answer4.innerText = choice4;
     current_answer = answer;
 
-    let per_progresbar = getId("per_progresbar");
+    let per_progresbar = getElement("per_progresbar");
     per_progresbar.innerText = progres_dis_withe + " %";
     width += add_to_width;
     elem.style.width = width + "%";
     current_question++;
     progres_dis_withe += add_to_width;
     // remove background green to btns
-    for (const btn of clicked_btn) {
+    for (const btn of clicked_btns) {
       btn.classList.remove("background_green");
       btn.classList.remove("background_red");
     }
   } else {
-    let resul_container = getId("resul_container");
+    let resul_container = getElement("resul_container");
   
-    let quetion_contenaire = getId("quetion_contenaire");
     quetion_contenaire.style.display = "none";
     resul_container.classList.remove("d-none");
-    console.log(correct_answer);
+    console.log(result);
 
-    let div_logo = getId("div_logo");
-    div_logo.innerText += correct_answer / number_of_questions *100 +" %";
+    let div_logo = getElement("div_logo");
+    div_logo.innerText += result / number_of_questions *100 +" %";
 
     toggle();
   }
 };
+
 
 
 // set intervale
@@ -82,88 +83,70 @@ let toggle = () => {
     clearInterval(intervalId);
     isRunning = false;
   } else {
-    intervalId = setInterval(show_next_quetion, 5000);
+    intervalId = setInterval(show_next_quetion, 4000);
     isRunning = true;
   }
 };
 
-toggle();
 
+// check answer function 
+let clicked_btns = [] ;
+let result = 0;
+let check_answer = (chosen_btn_id,shosen_answer)=>{
+   let chosen_btn = getElement(chosen_btn_id);
+    
+   if (shosen_answer == current_answer) {
+    result++;
+    chosen_btn.classList.add('background_green');
+    clicked_btns.push(chosen_btn);
+  }else { 
+    chosen_btn.classList.add("background_red");    
+    clicked_btns.push(chosen_btn);
+  }
+
+}
 // setInterval(intervaleid);
-let container = getId("answers_container");
-let correct_answer = 0;
-let clicked_btn = [] ;
-// let incorrect_answer = [];
+let container = getElement("answers_container");
 let chosen_btn_id;
 container.addEventListener("click", (event) => {
   if (event.target.id === "answer1") {
-    chosen_btn_id = 1;
+    
+  //  let shosen_answer = 1;
+  //  let chosen_btn_id = "answer1";
+    check_answer("answer1",1);
+    setTimeout(show_next_quetion, 1000); 
     toggle();
     toggle();
-    // show_next_quetion();
   } else if (event.target.id === "answer2") {
-    chosen_btn_id = 2;
-
+    check_answer("answer2",2);
+    setTimeout(show_next_quetion, 1000); 
     toggle();
     toggle();
   } else if (event.target.id === "answer3") {
-    chosen_btn_id = 3;
+    check_answer("answer3",3);
+    setTimeout(show_next_quetion, 1000); 
     toggle();
     toggle();
   } else if (event.target.id === "answer4") {
-    chosen_btn_id = 4;
+    check_answer("answer4",4);
+    setTimeout(show_next_quetion, 1000); 
     toggle();
     toggle();
   } 
-  if ([1, 2, 3, 4].includes(chosen_btn_id)) {
-    // console.log("id is", chosen_btn_id);
-    // console.log("answer is ", current_answer);
-
-    if (chosen_btn_id == current_answer) {
-      correct_answer++;
-      event.target.classList.add("background_green");
-      clicked_btn.push(event.target);
-
-    }else {
-      
-      event.target.classList.add("background_red");
-      clicked_btn.push(event.target);
-    }
-  }
 
 });
-submitbtn.addEventListener("click",(avent)=>{
- clicked_btn.free();
-}
 
-)
-
-// submitbtn.addEventListener("click", ()=>{
-//   if (chosen_btn_id == answer) {
-//     alert();
-//   }
-// });
-
-// var i = 0;
-// function move() {
-//   if (i == 0) {
-//     i = 1;
-//     var elem = document.getElementById("myBar");
-//     var width = 1;
-//     var id = setInterval(frame, 10);
-//     function frame() {
-//       if (width >= 100) {
-//         clearInterval(id);
-//         i = 0;
-//       } else {
-//         width++;
-//         elem.style.width = width + "%";
-//       }
-//     }
-//   }
+// submitbtn.addEventListener("click",(avent)=>{
+//  clicked_btns.free();
 // }
 
-let btnstart = () => {
-  img_and_parastartid.classList.remove("d-flex");
-  img_and_parastartid.style.display = "none";
-};
+// )
+home.classList.add('d-none');
+  quetion_contenaire.classList.remove("d-none");
+  show_next_quetion();
+btnstart.addEventListener("click",()=>{
+  
+  
+  
+  
+});
