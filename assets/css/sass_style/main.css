@@ -87,7 +87,7 @@ button:active {
   width: var(--circle-size);
   height: var(--circle-size);
   border-radius: 50%;
-  background-color: rgb(101, 95, 214);
+  background-color: rgb(156, 153, 215);
 }
 .c-stepper__item:not(:last-child) {
   flex: 1;
@@ -97,10 +97,21 @@ button:active {
   position: relative;
   z-index: -1;
   height: 2px;
-  background-color: #e0e0e0;
   flex: 2;
   margin-right: 0.5rem;
-  background-color: rgb(101, 95, 214);
+  background-color: rgb(141, 138, 194);
+}
+
+.steper_cyrcl_background::before {
+  background-color: rgb(37, 30, 173);
+}
+
+.steper_line_background_1:nth-child(1)::after {
+  background-color: rgb(37, 30, 173);
+}
+
+.steper_line_background_2:nth-child(2)::after {
+  background-color: rgb(37, 30, 173);
 }
 
 .c-stepper__title {
@@ -113,14 +124,18 @@ button:active {
 }
 
 .answers {
-  background-color: rgb(101, 95, 214);
+  background-color: rgb(100, 94, 199);
   font-family: "Acme";
   font-weight: 900;
 }
 
-.checkbox {
-  position: relative;
-  left: 1rem;
+#myBar {
+  padding: 0.2;
+}
+
+.per_progresbar {
+  color: aliceblue;
+  font-size: large;
 }
 
 .resul_container, #myBar, #myProgress {

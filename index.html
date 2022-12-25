@@ -21,15 +21,15 @@
     </div>
     <div class="d-flex justify-content-center align-items-center">
       <ol class="c-stepper">
-        <li class="c-stepper__item">
-          <h3 class="c-stepper__title">info</h3>
+        <li class="c-stepper__item" id="info_cyrcl1">
+          <h3 class="c-stepper__title" id="info_line" >info</h3>
         </li>
         <!-- Other steps -->
-        <li class="c-stepper__item">
-          <h3 class="c-stepper__title">Quiz</h3>
+        <li class="c-stepper__item" id="info_cyrcl2">
+          <h3 class="c-stepper__title" id="Quiz">Quiz</h3>
         </li>
-        <li class="c-stepper__item">
-          <h3 class="c-stepper__title">resulte</h3>
+        <li class="c-stepper__item" id="info_cyrcl3">
+          <h3 class="c-stepper__title" id="resulte">resulte</h3>
         </li>
       </ol>
     </div>
@@ -72,25 +72,25 @@
           </div>  
           
           
-            <div class="row d-none  flex-column justify-content-center align-items-center w-50 h-75 p-1 rounded-3 text-center answers" id="quetion_contenaire">
-              <div class=" col-1 m-2 d-flex  align-items-center" id="myProgress">
+            <div class="row g-5 d-none  flex-column justify-content-center align-items-center w-50 h-75 p-1 rounded-3 text-center answers" id="quetion_contenaire">
+              <div class=" col-13  m-2 d-flex  align-items-center" id="myProgress">
                 <div id="myBar">
                   <p class="per_progresbar" id="per_progresbar" ></p>
                 </div>
               </div>
-              <div class="col-10 p-2 quation">
+              <div class="col-11 h-10 p-2 quation">
                 <h1 id="question_id"></h1>
               </div>
-              <div class="col-10  answers">
+              <div class="col-11 p-0  answers">
                 <div class="row justify-content-around  " id="answers_container">
                   <div class="col-5 ">
                     <div class="row g-4 flex-column ">
                         <div class=" col p-1  rounded-pill text-center d-flex answers_item ">
-                          <input type="checkbox" id="checkbox1" name="" class="" >
+                          <!-- <input type="checkbox" id="checkbox1" name="" class="" > -->
                           <button class="btn rounded-pill  w-100" id="answer1"></button>
                         </div>
                         <div class="col  p-1  rounded-pill text-center d-flex respons_item answers_item ">
-                          <input type="checkbox" id="checkbox2" name="" class="checkbox" >
+                          <!-- <input type="checkbox" id="checkbox2" name="" class="checkbox" > -->
                           <button class="btn rounded-pill  w-100" id="answer2"></button>
                         </div>
                     </div>
@@ -99,11 +99,11 @@
                     <div class="row g-4 flex-column ">
                             
                             <div class="col p-1  rounded-pill text-center d-flex answers_item" >
-                                <input type="checkbox" id="checkbox3" name="" >
+                                <!-- <input type="checkbox" id="checkbox3" name="" > -->
                                 <button class="btn rounded-pill  w-100" id="answer3"></button>
                             </div>
                             <div class="col  p-1  rounded-pill text-center d-flex  answers_item" id="k2">
-                              <input type="checkbox" id="checkbox4" name="" >
+                              <!-- <input type="checkbox" id="checkbox4" name="" > -->
                               <button class="btn rounded-pill  w-100" id="answer4"></button>
                       </div>
                     </div>

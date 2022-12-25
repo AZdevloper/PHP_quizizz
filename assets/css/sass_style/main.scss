@@ -28,7 +28,7 @@ body{
 
 
 .sectionCenter{
-         margin-right: 2rem;
+    margin-right: 2rem;
     margin-bottom: 3rem; 
     width: 71rem;
     
@@ -85,7 +85,7 @@ button:active {
         width: var(--circle-size);
         height: var(--circle-size);
         border-radius: 50%;
-        background-color: rgb(101, 95, 214); // circle background 
+        background-color: rgb(156, 153, 215); // circle background 
     }
 
     &:not(:last-child) {
@@ -96,13 +96,40 @@ button:active {
             position: relative;
             z-index: -1;
             height: 2px;
-            background-color: #e0e0e0;
+            // background-color: #e0e0e0;
             flex: 2;
             margin-right: 0.5rem;
-        background-color: rgb(101, 95, 214); // line background
+            background-color: rgb(141, 138, 194); // line background
         }
     }
 }
+.steper_cyrcl_background{
+        &::before{
+            background-color: rgb(37, 30, 173);
+        }
+
+}
+@mixin change_color($number){
+    &:nth-child(#{$number}) {
+        &::after{
+            
+            background-color: rgb(37, 30, 173);
+        }
+    }
+}
+.steper_line_background_1{
+   @include change_color(1);
+
+}
+.steper_line_background_2{
+   @include change_color(2);
+}
+
+// .steper_line_background{
+//         &::after{
+//             background-color: rgb(173, 30, 56) ;
+//         }
+// }
 
 .c-stepper__title {
     font-weight: bold;
@@ -113,15 +140,25 @@ button:active {
  background-color:coral;
 }
 .answers{
-    background-color: rgb(101, 95, 214);
+    background-color: rgb(100, 94, 199);
      font-family: 'Acme';
      font-weight: 900;
      
 }
-.checkbox{
-    position: relative;
-    left: 1rem;
+#myBar{
+    padding: 0.2;
+
 }
+.per_progresbar{
+    color: aliceblue;
+    font-size: large;
+   
+
+}
+// .checkbox{
+//     position: relative;
+//     left: 1rem;
+// }
 %abstract_class{
     border-radius: 3rem;
 }

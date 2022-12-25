@@ -60,6 +60,10 @@ let show_next_quetion = () => {
       btn.classList.remove("background_red");
     }
   } else {
+    let info_cyrcl2 = getElement("info_cyrcl2");
+    info_cyrcl2.classList.add("steper_line_background_2");
+    let info_cyrcl3 = getElement("info_cyrcl3");
+    info_cyrcl3.classList.add('steper_cyrcl_background');
     let resul_container = getElement("resul_container");
   
     quetion_contenaire.style.display = "none";
@@ -141,12 +145,20 @@ container.addEventListener("click", (event) => {
 // }
 
 // )
-home.classList.add('d-none');
+let info_cyrcl1 = getElement("info_cyrcl1");
+info_cyrcl1.classList.add('steper_cyrcl_background');
+
+
+
+btnstart.addEventListener("click",()=>{
+  info_cyrcl1.classList.add('steper_line_background_1');
+  let info_cyrcl2 = getElement("info_cyrcl2");
+  info_cyrcl2.classList.add("steper_cyrcl_background");
+
+  home.classList.add('d-none');
   quetion_contenaire.classList.remove("d-none");
   show_next_quetion();
-btnstart.addEventListener("click",()=>{
-  
-  
+  toggle();
   
   
 });
