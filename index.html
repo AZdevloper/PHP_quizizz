@@ -11,7 +11,7 @@
     <!-- sass style -->
     <link rel="stylesheet" href="/assets/css/sass_style/main.css" />
   </head>
-  <body class="">
+  <body >
     <div class="div_logo d-flex">
       <img
         class="img_logo shadow rounded-circle"
@@ -29,7 +29,7 @@
           <h3 class="c-stepper__title" id="Quiz">Quiz</h3>
         </li>
         <li class="c-stepper__item" id="info_cyrcl3">
-          <h3 class="c-stepper__title" id="resulte">resulte</h3>
+          <h3 class="c-stepper__title" id="resulte">result</h3>
         </li>
       </ol>
     </div>
@@ -73,6 +73,11 @@
           
           
             <div class="row g-5 d-none  flex-column justify-content-center align-items-center w-50 h-75 p-1 rounded-3 text-center answers" id="quetion_contenaire">
+              <div class=" col-13  m-2 d-flex  align-items-center" id="Timer_down_container">
+                <div id="">
+                  <p class="per_progresbar"  ><span id="Timer_down"> TimerDown:  </span> </p>
+                </div>
+              </div>
               <div class=" col-13  m-2 d-flex  align-items-center" id="myProgress">
                 <div id="myBar">
                   <p class="per_progresbar" id="per_progresbar" ></p>
@@ -118,15 +123,17 @@
                       src="/assets/img/logo/Mia & Ali(1)-modified.png"
                       alt=""
                     />
-                  <div class=" div_logo  ">
-                    <p class=" f-w-600 fs-19px" id="div_logo">your score is : </p>
+                  <div class=" div_logo d-flex align-content-center " id="result_div">
+                    <h1 class=" f-w-600 fs-19px  " >YOUR SCORE IS : <span id="div_logo"></span> </h1>
                   </div>
               </div>
             </div>
 
             </div>
     </div>
-
+ <div id="counter" class="d-none ">
+      <p id="counter_p"></p>
+    </div>
     <script src="/assets/js/app.min.js"></script>
     <script src="/assets/js/vendor.min.js"></script>
     <script src="/assets/js/ques.js" type="module"></script>

@@ -44,9 +44,49 @@ body{
 }
 .div_logo{
     display: flex;
-    
-    
+    color: azure;
 
+}
+#div_logo{
+
+    color: indianred;
+}
+#result_div{
+    flex-direction: column;
+}
+.angry_emoji{
+   
+    font-size: 2rem;
+    color: rgb(206, 52, 93);
+   
+}
+.happy_emoji{
+    font-size: 2rem;
+        color: rgb(52, 206, 103);
+}
+.score{
+    padding: 1rem;
+}
+#counter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    font:{
+        
+        size :10rem;
+        weight:900;
+    } 
+    position: relative;
+    z-index: 999;
+    width: 100%;
+    height: 53rem;
+    background-color: hsla(254, 24%, 14%, 0.522);
+    bottom: 43rem;
+
+}
+.pace,.pace-inactive{
+    display: none;
 }
 @keyframes pulse {
     from {
@@ -137,10 +177,19 @@ button:active {
 }
 
 .answers_item{
- background-color:coral;
+ background-color:rgb(109, 104, 204);
+}
+.answers_container{
+    border: 1px solid rgba(201, 142, 142, 0.18);
 }
 .answers{
-    background-color: rgb(100, 94, 199);
+        background-color: rgb(129, 124, 210);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0);
+        backdrop-filter: blur(2.5px);
+        -webkit-backdrop-filter: blur(2.5px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+
      font-family: 'Acme';
      font-weight: 900;
      
@@ -168,12 +217,12 @@ button:active {
     height: 40px;
     background-color: grey;
 }
-
+$mov_color : rgb(101, 5, 214);
 #myBar {
     @extend %abstract_class;
     width: 0%;
     height: 20px;
-    background-color: rgb(101, 5, 214);
+    background-color: $mov_color;
 }
 .resulte_logo_img{
     position: relative;

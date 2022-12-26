@@ -26,6 +26,33 @@ let get_random_number = (max, min) => {
   previousNumbers.push(randomNumber);
   return randomNumber;
 };
+// insert into counterlet
+// let x = 10;
+// let insert_into = ()=>{
+//    Timer_down.innerText = x;
+//    ++x;
+//   if (x < 0) {
+//       // clearInterval(intervale1);
+//       x = 10;
+//       show_next_quetion();
+//     }
+// }
+// count_Down
+
+// let time_for_each_question = 10000;
+
+// let intervale1 ;
+// let start_counter_down = ()=>{
+//    intervale1 = setInterval(() => {
+//     //  x=x-1;
+//    insert_into();
+ 
+//   }, 1000);
+// }
+// for (let x = 0; x < 10; x++) {
+//  setTimeout(show_next_quetion,1000);
+  
+// }
 // show_next_quetion
 let add_to_width = 100 / number_of_questions;
 let width = 0;
@@ -36,6 +63,7 @@ let quetion_contenaire = getElement("quetion_contenaire");
 
 let show_next_quetion = () => {
   if (current_question <= number_of_questions) {
+    // start_counter_down();
     let randomNumber = get_random_number(number_of_questions-1, 0);
     // console.log("randomNumber", randomNumber);
     // console.log(questions[randomNumber]);
@@ -72,8 +100,25 @@ let show_next_quetion = () => {
 
     let div_logo = getElement("div_logo");
     div_logo.innerText += result / number_of_questions *100 +" %";
+    if ((result / number_of_questions) * 100 >= 50) {
+        let result_div = getElement("result_div");
+        console.log(result_div);
+        result_div.insertAdjacentHTML(
+          "beforeend",
+          '<br><i class="happy_emoji">Congratulations! You passed the quiz.</i>'
+        );
+        //  clearInterval(intervale1);
 
-    toggle();
+    }else {
+        let result_div = getElement("result_div");
+        console.log(result_div);
+        result_div.insertAdjacentHTML(
+          "beforeend",
+          '<i class="angry_emoji">Bad Result try again.</i>'
+        );
+      // clearInterval(intervale1);
+    }
+   
   }
 };
 
@@ -87,7 +132,7 @@ let toggle = () => {
     clearInterval(intervalId);
     isRunning = false;
   } else {
-    intervalId = setInterval(show_next_quetion, 4000);
+    intervalId = setInterval(show_next_quetion, time_for_each_question);
     isRunning = true;
   }
 };
@@ -151,14 +196,55 @@ info_cyrcl1.classList.add('steper_cyrcl_background');
 
 
 btnstart.addEventListener("click",()=>{
-  info_cyrcl1.classList.add('steper_line_background_1');
-  let info_cyrcl2 = getElement("info_cyrcl2");
-  info_cyrcl2.classList.add("steper_cyrcl_background");
+  let start_quiz = ()=>{
+    counter.classList.add("d-none");
+    info_cyrcl1.classList.add('steper_line_background_1');
+    let info_cyrcl2 = getElement("info_cyrcl2");
+    info_cyrcl2.classList.add("steper_cyrcl_background");
 
-  home.classList.add('d-none');
-  quetion_contenaire.classList.remove("d-none");
-  show_next_quetion();
-  toggle();
+    home.classList.add('d-none');
+    quetion_contenaire.classList.remove("d-none");
+    // toggle();
+    // start_counter_down();
+    //  let intervale1;
+
+    // let start_counter_down = ()=>{
+       
+    // }
+
+    for (let index = 0; index <= number_of_questions; index++) {
+      // start_counter_down();
+      setTimeout(() => {
+          show_next_quetion();
+
+          let count_down_duration = 10;
+          for (let j = 0; j < 10; j++) {
+            setTimeout(() => {
+              Timer_down.innerText = count_down_duration;
+              --count_down_duration;
+            }, 1000*j);
+          }
+      }, 10000*index);
+    }
+    
+     
+  }
+  let counter = getElement("counter");
+  counter.classList.remove("d-none");
+  let counter_p = getElement("counter_p");
+  let x =3;
+  let intervale =  setInterval(() => {
+    counter_p.innerText = x;
+    x--;
+    if(x<-1) {
+      clearInterval(intervale);
+      start_quiz();
+    }
+  }, 1000);
+  
+
+ 
+
   
   
 });
