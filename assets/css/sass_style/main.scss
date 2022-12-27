@@ -81,7 +81,7 @@ body{
     z-index: 999;
     width: 100%;
     height: 53rem;
-    background-color: hsla(254, 24%, 14%, 0.522);
+    background-color: hsla(0, 0%, 0%, 0.778);
     bottom: 43rem;
 
 }
@@ -164,6 +164,15 @@ button:active {
 .steper_line_background_2{
    @include change_color(2);
 }
+#counter_p{
+    -webkit-text-stroke: 2px black;     
+    color: white;
+}
+#btnstart{
+   &:hover{
+       transition: 1s scale(2.2) ;
+} 
+}
 
 // .steper_line_background{
 //         &::after{
@@ -195,33 +204,28 @@ button:active {
      
 }
 #myBar{
-    padding: 0.2;
+    padding: 0.2rem;
 
 }
 .per_progresbar{
-    color: aliceblue;
-    font-size: large;
-   
-
+    color: aliceblue; 
 }
-// .checkbox{
-//     position: relative;
-//     left: 1rem;
-// }
 %abstract_class{
     border-radius: 3rem;
 }
 #myProgress {
     @extend %abstract_class;
+    margin: 0;
+    padding: 1rem;
     width: 70%;
     height: 40px;
-    background-color: grey;
+    background-color: rgba(138, 71, 71, 0.429);
 }
 $mov_color : rgb(101, 5, 214);
 #myBar {
     @extend %abstract_class;
     width: 0%;
-    height: 20px;
+    height: 2em;
     background-color: $mov_color;
 }
 .resulte_logo_img{

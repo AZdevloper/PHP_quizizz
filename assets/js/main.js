@@ -53,6 +53,20 @@ let get_random_number = (max, min) => {
 //  setTimeout(show_next_quetion,1000);
   
 // }
+//timer
+var timerid;
+function timer() {
+  let count_down_duration = 10;
+  timerid = setInterval(() => {
+     Timer_down.innerText = count_down_duration;
+     --count_down_duration;
+     if (count_down_duration < 0) {
+       clearInterval(timerid);
+       show_next_quetion();
+     }
+   }, 1000);
+ }
+
 // show_next_quetion
 let add_to_width = 100 / number_of_questions;
 let width = 0;
@@ -62,11 +76,13 @@ let progres_dis_withe = add_to_width; ;
 let quetion_contenaire = getElement("quetion_contenaire");
 
 let show_next_quetion = () => {
+  
   if (current_question <= number_of_questions) {
-    // start_counter_down();
-    let randomNumber = get_random_number(number_of_questions-1, 0);
-    // console.log("randomNumber", randomNumber);
-    // console.log(questions[randomNumber]);
+    // clearInterval(timerid);
+    // timer();
+   
+    let randomNumber =  get_random_number(number_of_questions-1, 0);
+
 
     let { question, choice1, choice2, choice3, choice4, answer } = questions[randomNumber];
     question_id.innerText = question;
@@ -87,7 +103,9 @@ let show_next_quetion = () => {
       btn.classList.remove("background_green");
       btn.classList.remove("background_red");
     }
+    
   } else {
+     clearInterval(timerid);
     let info_cyrcl2 = getElement("info_cyrcl2");
     info_cyrcl2.classList.add("steper_line_background_2");
     let info_cyrcl3 = getElement("info_cyrcl3");
@@ -125,35 +143,35 @@ let show_next_quetion = () => {
 
 
 // set intervale
-let intervalId = null;
-let isRunning = false;
-let toggle = () => {
-  if (isRunning) {
-    clearInterval(intervalId);
-    isRunning = false;
-  } else {
-    intervalId = setInterval(show_next_quetion, time_for_each_question);
-    isRunning = true;
-  }
-};
+// let intervalId = null;
+// let isRunning = false;
+// let toggle = () => {
+//   if (isRunning) {
+//     clearInterval(intervalId);
+//     isRunning = false;
+//   } else {
+//     intervalId = setInterval(show_next_quetion, time_for_each_question);
+//     isRunning = true;
+//   }
+// };
 
 
 // check answer function 
-let clicked_btns = [] ;
-let result = 0;
-let check_answer = (chosen_btn_id,shosen_answer)=>{
-   let chosen_btn = getElement(chosen_btn_id);
-    
-   if (shosen_answer == current_answer) {
-    result++;
-    chosen_btn.classList.add('background_green');
-    clicked_btns.push(chosen_btn);
-  }else { 
-    chosen_btn.classList.add("background_red");    
-    clicked_btns.push(chosen_btn);
-  }
+  let clicked_btns = [] ;
+  let result = 0;
+  let check_answer = (chosen_btn_id,shosen_answer)=>{
+    let chosen_btn = getElement(chosen_btn_id);
+      
+    if (shosen_answer == current_answer) {
+      result++;
+      chosen_btn.classList.add('background_green');
+      clicked_btns.push(chosen_btn);
+    }else { 
+      chosen_btn.classList.add("background_red");    
+      clicked_btns.push(chosen_btn);
+    }
 
-}
+  }
 // setInterval(intervaleid);
 let container = getElement("answers_container");
 let chosen_btn_id;
@@ -164,23 +182,31 @@ container.addEventListener("click", (event) => {
   //  let chosen_btn_id = "answer1";
     check_answer("answer1",1);
     setTimeout(show_next_quetion, 1000); 
-    toggle();
-    toggle();
+    clearInterval(timerid);
+    timer(); 
+    // toggle();
+    // toggle();
   } else if (event.target.id === "answer2") {
     check_answer("answer2",2);
     setTimeout(show_next_quetion, 1000); 
-    toggle();
-    toggle();
+     clearInterval(timerid);
+     timer(); 
+    // toggle();
+    // toggle();
   } else if (event.target.id === "answer3") {
     check_answer("answer3",3);
     setTimeout(show_next_quetion, 1000); 
-    toggle();
-    toggle();
+     clearInterval(timerid);
+     timer(); 
+    // toggle();
+    // toggle();
   } else if (event.target.id === "answer4") {
     check_answer("answer4",4);
     setTimeout(show_next_quetion, 1000); 
-    toggle();
-    toggle();
+     clearInterval(timerid);
+     timer(); 
+    // toggle();
+    // toggle();
   } 
 
 });
@@ -204,31 +230,14 @@ btnstart.addEventListener("click",()=>{
 
     home.classList.add('d-none');
     quetion_contenaire.classList.remove("d-none");
-    // toggle();
-    // start_counter_down();
-    //  let intervale1;
 
-    // let start_counter_down = ()=>{
-       
-    // }
+     
+     show_next_quetion();
+     
 
-    for (let index = 0; index <= number_of_questions; index++) {
-      // start_counter_down();
-      setTimeout(() => {
-          show_next_quetion();
-
-          let count_down_duration = 10;
-          for (let j = 0; j < 10; j++) {
-            setTimeout(() => {
-              Timer_down.innerText = count_down_duration;
-              --count_down_duration;
-            }, 1000*j);
-          }
-      }, 10000*index);
-    }
-    
      
   }
+  //  timer   3 to 0
   let counter = getElement("counter");
   counter.classList.remove("d-none");
   let counter_p = getElement("counter_p");

@@ -76,7 +76,7 @@ body {
   z-index: 999;
   width: 100%;
   height: 53rem;
-  background-color: hsla(254deg, 24%, 14%, 0.522);
+  background-color: hsla(0deg, 0%, 0%, 0.778);
   bottom: 43rem;
 }
 
@@ -156,6 +156,15 @@ button:active {
   background-color: rgb(37, 30, 173);
 }
 
+#counter_p {
+  -webkit-text-stroke: 2px black;
+  color: white;
+}
+
+#btnstart:hover {
+  transition: 1s scale(2.2);
+}
+
 .c-stepper__title {
   font-weight: bold;
   font-size: clamp(1rem, 4vw, 1.25rem);
@@ -181,12 +190,11 @@ button:active {
 }
 
 #myBar {
-  padding: 0.2;
+  padding: 0.2rem;
 }
 
 .per_progresbar {
   color: aliceblue;
-  font-size: large;
 }
 
 .resul_container, #myBar, #myProgress {
@@ -194,14 +202,16 @@ button:active {
 }
 
 #myProgress {
+  margin: 0;
+  padding: 1rem;
   width: 70%;
   height: 40px;
-  background-color: grey;
+  background-color: rgba(138, 71, 71, 0.429);
 }
 
 #myBar {
   width: 0%;
-  height: 20px;
+  height: 2em;
   background-color: rgb(101, 5, 214);
 }
 
