@@ -1,0 +1,18 @@
+CREATE TABLE `user`(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(255)
+
+);
+CREATE TABLE `questions`(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    questionContent VARCHAR(255),
+    idCorrectAnswer INT
+
+);
+
+CREATE TABLE `choices`(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    choiceContent VARCHAR(255),
+    questionId INT,
+    FOREIGN KEY(questionId) REFERENCES questions(id) ON UPDATE CASCADE ON DELETE CASCADE
+);

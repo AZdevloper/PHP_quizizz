@@ -78,8 +78,8 @@ let quetion_contenaire = getElement("quetion_contenaire");
 let show_next_quetion = () => {
   
   if (current_question <= number_of_questions) {
-    // clearInterval(timerid);
-    // timer();
+    clearInterval(timerid);
+    timer();
    
     let randomNumber =  get_random_number(number_of_questions-1, 0);
 
@@ -125,7 +125,7 @@ let show_next_quetion = () => {
           "beforeend",
           '<br><i class="happy_emoji">Congratulations! You passed the quiz.</i>'
         );
-        //  clearInterval(intervale1);
+         clearInterval(intervale1);
 
     }else {
         let result_div = getElement("result_div");
@@ -134,7 +134,7 @@ let show_next_quetion = () => {
           "beforeend",
           '<i class="angry_emoji">Bad Result try again.</i>'
         );
-      // clearInterval(intervale1);
+      clearInterval(intervale1);
     }
    
   }
