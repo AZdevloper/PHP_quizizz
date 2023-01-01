@@ -1,4 +1,13 @@
 <?php
+// require_once('../includes/autoloader.php');
+
+// $getData = new DbConnection();
+
+// $query = $getData->connect()->prepare("SELECT * FROM `questions` WHERE 1");
+// $query->execute();
+//     $respons = $query->fetchAll();
+//     // echo " connection successed ";
+//     echo $respons.json_encode(); // transform data from assoc array to json data
 
 ?>
 
@@ -10,16 +19,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PHP_Quizizz</title>
     <!-- bootstrap style -->
-    <link rel="stylesheet" href="/assets/css/vendor.min.css" />
-    <link rel="stylesheet" href="/assets/css/default/app.min.css" />
+    <link rel="stylesheet" href="assets/css/vendor.min.css" />
+    <link rel="stylesheet" href="assets/css/default/app.min.css" />
     <!-- sass style -->
-    <link rel="stylesheet" href="/assets/css/sass_style/main.css" />
+    <link rel="stylesheet" href="assets/css/sass_style/main.css" />
   </head>
   <body >
     <div class="div_logo d-flex">
       <img
         class="img_logo shadow rounded-circle"
-        src="/assets/img/logo/Mia & Ali(1)-modified.png"
+        src="assets/img/logo/Mia & Ali(1)-modified.png"
         alt=""
       />
     </div>
@@ -65,13 +74,13 @@
 
           <div class="sectionCenter d-flex justify-content-between " id="home">
             <article class=" align-self-center">
-              <h1> Welcome to PHP Quizizz! Practice and improve your PHP
+              <h1 id="potTextHer"> Welcome to PHP Quizizz! Practice and improve your PHP
                 skills with our resources and challenges.
                 Contact us if you need any assistance. We're here to help you 
                 succeed as a developer</h1>
                 <button type="button" id="btnstart"  class="btn btn btn-primary"> start now </button>
             </article>
-            <img id="" class=" bg-none opacity-300" src="/assets/img/cover/Mia___Ali_2_-removebg-preview.png" alt="">
+            <img id="" class=" bg-none opacity-300" src="assets/img/cover/Mia___Ali_2_-removebg-preview.png" alt="">
   
           </div>  
           
@@ -124,7 +133,7 @@
               <div>
                 <img
                       class="w-100px h-100px shadow rounded-circle resulte_logo_img"
-                      src="/assets/img/logo/Mia & Ali(1)-modified.png"
+                      src="assets/img/logo/Mia & Ali(1)-modified.png"
                       alt=""
                     />
                   <div class=" div_logo d-flex align-content-center " id="result_div">
@@ -140,10 +149,10 @@
     <!-- </div>
     <script src="/assets/js/app.min.js"></script>
     <script src="/assets/js/vendor.min.js"></script> -->
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/js/ques.js" type="module"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/ques.js" type="module"></script>
 
 
-    <script src="/assets/js/main.js" type="module"></script>
+    <script src="assets/js/main.js" type="module"></script>
   </body>
 </html>
