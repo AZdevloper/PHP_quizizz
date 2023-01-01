@@ -14,7 +14,6 @@ let answer3 = getElement("answer3");
 let answer4 = getElement("answer4");
 
 var elem = document.getElementById("myBar");
-let number_of_questions = questions.length;
 
 // get_randomNumber
 let previousNumbers = [];
@@ -56,19 +55,40 @@ let get_random_number = (max, min) => {
 //timer
 var timerid;
 function timer() {
-  let count_down_duration = 10;
+  let count_down_duration = 2;
   timerid = setInterval(() => {
      Timer_down.innerText = count_down_duration;
      --count_down_duration;
      if (count_down_duration < 0) {
        clearInterval(timerid);
-       show_next_quetion();
+      //  show_next_quetion();
      }
-   }, 1000);
+   }, 2000);
  }
+ // get data with ajax
+ let questionContentData,idCorrectAnswerData,idData;
+ let allData;
+ function getData() {
+  var xhttp = new XMLHttpRequest();
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      // document.getElementById("potTextHer").innerHTML = this.responseText;
+      let jsonResponse = JSON.parse(this.responseText);
+          allData = jsonResponse;
+    }
+  };
+  let idCorrectAnswerData
+  let questionId = 1; 
+  xhttp.open("GET", `http://localhost/PHP_quizizz/PHPscripts/scripts.php?questionId=${questionId}?idCorrectAnswerData=${idCorrectAnswerData}`, false);
+  xhttp.send();
+  
+}
+getData();
 
 // show_next_quetion
-let add_to_width = 100 / number_of_questions;
+let number_of_questions = allData.length;
+let add_to_width = Math.floor( 100 / number_of_questions);
 let width = 0;
 let current_question = 1;
 let current_answer;
@@ -76,21 +96,22 @@ let progres_dis_withe = add_to_width; ;
 let quetion_contenaire = getElement("quetion_contenaire");
 
 let show_next_quetion = () => {
-  
+console.log("all data : ",allData);
+
   if (current_question <= number_of_questions) {
     clearInterval(timerid);
-    timer();
+    // timer();
    
     let randomNumber =  get_random_number(number_of_questions-1, 0);
+    console.log("randomNumber :",randomNumber)
 
-
-    let { question, choice1, choice2, choice3, choice4, answer } = questions[randomNumber];
-    question_id.innerText = question;
-    answer1.innerText = choice1;
-    answer2.innerText = choice2;
-    answer3.innerText = choice3;
-    answer4.innerText = choice4;
-    current_answer = answer;
+    let {questionContent,idCorrectAnswer,questionChoiceContent} = allData[2];
+    question_id.innerText = questionContent;
+    answer1.innerText = questionChoiceContent[1].replace(/&lt;/g,'<');
+    answer2.innerText = questionChoiceContent[1].replace(/&lt;/g,'<');;
+    answer3.innerText = questionChoiceContent[2].replace(/&lt;/g,'<');;
+    answer4.innerText = questionChoiceContent[3].replace(/&lt;/g,'<');;
+    current_answer = idCorrectAnswer;
 
     let per_progresbar = getElement("per_progresbar");
     per_progresbar.innerText = progres_dis_withe + " %";
@@ -117,10 +138,10 @@ let show_next_quetion = () => {
     console.log(result);
 
     let div_logo = getElement("div_logo");
-    div_logo.innerText += result / number_of_questions *100 +" %";
+    div_logo.innerText += Math.floor(result / number_of_questions) *100 +" %";
     if ((result / number_of_questions) * 100 >= 50) {
         let result_div = getElement("result_div");
-        console.log(result_div);
+        // console.log(result_div);
         result_div.insertAdjacentHTML(
           "beforeend",
           '<br><i class="happy_emoji">Congratulations! You passed the quiz.</i>'
@@ -232,27 +253,29 @@ btnstart.addEventListener("click",()=>{
     quetion_contenaire.classList.remove("d-none");
 
      
-     show_next_quetion();
-     
-
-     
+     show_next_quetion(); 
   }
-  //  timer   3 to 0
-  let counter = getElement("counter");
-  counter.classList.remove("d-none");
-  let counter_p = getElement("counter_p");
-  let x =3;
-  let intervale =  setInterval(() => {
-    counter_p.innerText = x;
-    x--;
-    if(x<-1) {
-      clearInterval(intervale);
-      start_quiz();
-    }
-  }, 1000);
+  start_quiz();
+  // //  timer   3 to 0
+      // let counter = getElement("counter");
+      // counter.classList.remove("d-none");
+      // let counter_p = getElement("counter_p");
+      // let x =3;
+      // let intervale =  setInterval(() => {
+      //   counter_p.innerText = x;
+      //   x--;
+      //   if(x<-1) {
+      //     clearInterval(intervale);
+      //     start_quiz();
+      //   }
+      // }, 1000);
   
+// fetch('Classes/dbConnection.class.php')
+// .then((respons)=>console.log()).then((data)=>{
+//   console.log(data);
 
- 
+// })
+
 
   
   

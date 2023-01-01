@@ -22,7 +22,6 @@ class DbConnection {
         $this->conn = NULL;
     }
     public function connect(){
-        echo " connection successed ";
         return $this->conn;
     }
 }
