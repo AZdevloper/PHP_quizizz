@@ -11839,7 +11839,7 @@ textarea.form-control-lg {
   }
 }
 .btn-primary {
-  color: red;
+  color: rgb(234, 241, 244);
 }
 
 body {
@@ -11855,6 +11855,10 @@ body {
   width: 100%;
   overflow: hidden;
   line-height: 0;
+}
+
+h1, .h1 {
+  font-size: 1em;
 }
 
 .custom-shape-divider-top-1671474662 svg {
@@ -12009,6 +12013,16 @@ button:active {
   transition: 1s scale(2.2);
 }
 
+#inputName {
+  padding: 1em;
+  height: 2rem;
+  border-radius: 2rem;
+}
+
+.inputNameNull {
+  background-color: rgba(216, 69, 69, 0.6352941176);
+}
+
 .c-stepper__title {
   font-weight: bold;
   font-size: clamp(1rem, 4vw, 1.25rem);
@@ -12033,8 +12047,16 @@ button:active {
   font-weight: 900;
 }
 
-#myBar {
-  padding: 0.2rem;
+.per_progresbar {
+  padding: 3px;
+  background-color: rgb(130, 98, 163);
+  border: solid black 2px;
+  border-radius: 4px;
+}
+
+#Timer_down {
+  display: block;
+  font-size: 1em;
 }
 
 .per_progresbar {
@@ -12051,12 +12073,14 @@ button:active {
   width: 70%;
   height: 40px;
   background-color: rgba(138, 71, 71, 0.429);
+  border: 2px solid black;
 }
 
 #myBar {
+  padding: 0.2rem;
   width: 0%;
   height: 2em;
-  background-color: rgb(101, 5, 214);
+  background-color: rgb(210, 187, 238);
 }
 
 .resulte_logo_img {
